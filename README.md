@@ -32,7 +32,7 @@
 - [mxschmitt/action-tmate](https://github.com/mxschmitt/action-tmate)
 - [csexton/debugger-action](https://github.com/csexton/debugger-action)
 - [Cowtransfer](https://cowtransfer.com)
-- [WeTransfer](https://wewtansfer.com/)
+- [WeTransfer](https://wetransfer.com/)
 - [Mikubill/transfer](https://github.com/Mikubill/transfer)
 - [softprops/action-gh-release](https://github.com/softprops/action-gh-release)
 - [ActionsRML/delete-workflow-runs](https://github.com/ActionsRML/delete-workflow-runs)
