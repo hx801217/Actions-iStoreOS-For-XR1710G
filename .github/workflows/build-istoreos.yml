@@ -87,10 +87,10 @@ jobs:
       env:
         FEEDS_CONF_PATH: ${{ matrix.ARCHITECTURE }}/${{ env.FEEDS_CONF }}
       run: |
-        [ -e $FEEDS_CONF_PATH ] && mv $FEEDS_CONF_PATH openwrt/$FEEDS_CONF
-        chmod +x $DIY_P1_SH
+        [ -e "$FEEDS_CONF_PATH" ] && mv "$FEEDS_CONF_PATH" openwrt/"$FEEDS_CONF" || true
+        chmod +x "$DIY_P1_SH"
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P1_SH
+        "$GITHUB_WORKSPACE/$DIY_P1_SH"
 
     - name: 更新 feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -102,11 +102,11 @@ jobs:
       env:
         CONFIG_FILE_PATH: ${{ matrix.ARCHITECTURE }}/${{ env.CONFIG_FILE }}
       run: |
-        [ -e files ] && mv files openwrt/files
-        [ -e $CONFIG_FILE_PATH ] && mv $CONFIG_FILE_PATH openwrt/$CONFIG_FILE
-        chmod +x $DIY_P2_SH
+        [ -e files ] && mv files openwrt/files || true
+        [ -e "$CONFIG_FILE_PATH" ] && mv "$CONFIG_FILE_PATH" openwrt/"$CONFIG_FILE" || true
+        chmod +x "$DIY_P2_SH"
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_P2_SH
+        "$GITHUB_WORKSPACE/$DIY_P2_SH"
 
     - name: SSH 连接到 Actions
       uses: P3TERX/ssh2actions@v1.0.0
